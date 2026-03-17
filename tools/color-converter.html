@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Конвертер цветов онлайн. Конвертируйте между HEX, RGB и HSL форматами цветов бесплатно.">
+    <meta name="keywords" content="конвертер цветов, HEX RGB HSL, цветовой конвертер, онлайн инструмент">
+    <meta name="author" content="SonicWave Studio">
+    <meta name="robots" content="index, follow">
+    
+    <title>Конвертер Цветов — ToolHub</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-icon"><i class="fas fa-cube"></i></span>
+                <span class="logo-text">ToolHub</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html" class="nav-link">Главная</a></li>
+                <li><a href="../tools.html" class="nav-link active">Инструменты</a></li>
+                <li><a href="../about.html" class="nav-link">О нас</a></li>
+                <li><a href="../contact.html" class="nav-link">Контакты</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle"><span class="hamburger"></span></button>
+        </div>
+    </nav>
+
+    <main class="tool-page">
+        <div class="container">
+            <div class="tool-page-header">
+                <h1>Конвертер Цветов</h1>
+                <p>Конвертируйте между форматами HEX, RGB и HSL</p>
+            </div>
+
+            <div class="tool-interface">
+                <div class="form-group">
+                    <label>Выберите цвет</label>
+                    <input type="color" id="color-picker" value="#3498db" style="height:60px;">
+                </div>
+                <div class="color-formats" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:15px;">
+                    <div class="color-format" style="text-align:center;">
+                        <label style="display:block;font-size:0.75rem;color:var(--text-muted);margin-bottom:5px;">HEX</label>
+                        <input type="text" id="color-hex" readonly style="width:100%;text-align:center;">
+                    </div>
+                    <div class="color-format" style="text-align:center;">
+                        <label style="display:block;font-size:0.75rem;color:var(--text-muted);margin-bottom:5px;">RGB</label>
+                        <input type="text" id="color-rgb" readonly style="width:100%;text-align:center;">
+                    </div>
+                    <div class="color-format" style="text-align:center;">
+                        <label style="display:block;font-size:0.75rem;color:var(--text-muted);margin-bottom:5px;">HSL</label>
+                        <input type="text" id="color-hsl" readonly style="width:100%;text-align:center;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-info">
+                <h2>О Инструменте</h2>
+                <p>Конвертируйте цвета между популярными форматами мгновенно.</p>
+                <ul>
+                    <li>✓ HEX формат (#RRGGBB)</li>
+                    <li>✓ RGB формат (rgb(r,g,b))</li>
+                    <li>✓ HSL формат (hsl(h,s%,l%))</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 ToolHub. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/tools.js"></script>
+</body>
+</html>

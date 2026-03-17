@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Профессиональное сжатие изображений онлайн. Уменьшите размер файла без потери качества. Поддержка JPG, PNG, WebP.">
+    <meta name="keywords" content="сжатие изображений, компрессия фото, уменьшить размер файла, оптимизация изображений, онлайн инструмент">
+    <meta name="author" content="SonicWave Studio">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:title" content="Сжатие Изображений — ToolHub">
+    <meta property="og:description" content="Профессиональное сжатие изображений без потери качества.">
+    <meta property="og:type" content="website">
+    
+    <link rel="canonical" href="https://yourdomain.com/tools/image-compression.html">
+    
+    <title>Сжатие Изображений — ToolHub | Профессиональная Оптимизация</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-icon"><i class="fas fa-cube"></i></span>
+                <span class="logo-text">ToolHub</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html" class="nav-link">Главная</a></li>
+                <li><a href="../tools.html" class="nav-link active">Инструменты</a></li>
+                <li><a href="../about.html" class="nav-link">О нас</a></li>
+                <li><a href="../contact.html" class="nav-link">Контакты</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle"><span class="hamburger"></span></button>
+        </div>
+    </nav>
+
+    <main class="tool-page">
+        <div class="container">
+            <div class="tool-page-header">
+                <h1><i class="fas fa-compress-arrows-alt"></i> Сжатие Изображений</h1>
+                <p>Профессиональная оптимизация изображений без потери качества</p>
+            </div>
+
+            <div class="upload-zone" id="upload-zone">
+                <div class="upload-content">
+                    <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                    <h3>Перетащите изображение сюда</h3>
+                    <p>или нажмите для выбора файла</p>
+                    <span class="upload-formats">JPG, PNG, WebP до 10MB</span>
+                </div>
+                <input type="file" id="compress-input" accept="image/jpeg,image/png,image/webp" hidden>
+            </div>
+
+            <div class="compression-tool" id="compression-tool" style="display:none;">
+                
+                <div class="comparison-grid">
+                    <!-- BEFORE Card -->
+                    <div class="comparison-card before-card">
+                        <div class="card-header">
+                            <span class="card-badge badge-before">ДО</span>
+                            <span class="card-title">Оригинал</span>
+                        </div>
+                        <div class="card-image">
+                            <img id="before-image" src="" alt="До сжатия">
+                        </div>
+                        <div class="card-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-file"></i>
+                                <span class="stat-label">Размер:</span>
+                                <span class="stat-value" id="before-size">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-expand"></i>
+                                <span class="stat-label">Разрешение:</span>
+                                <span class="stat-value" id="before-dimensions">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-image"></i>
+                                <span class="stat-label">Формат:</span>
+                                <span class="stat-value" id="before-format">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AFTER Card -->
+                    <div class="comparison-card after-card">
+                        <div class="card-header">
+                            <span class="card-badge badge-after">ПОСЛЕ</span>
+                            <span class="card-title">Сжатое</span>
+                        </div>
+                        <div class="card-image">
+                            <img id="after-image" src="" alt="После сжатия">
+                            <div class="loading-overlay" id="loading-overlay" style="display:none;">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <span>Обработка...</span>
+                            </div>
+                        </div>
+                        <div class="card-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-file"></i>
+                                <span class="stat-label">Размер:</span>
+                                <span class="stat-value" id="after-size">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-expand"></i>
+                                <span class="stat-label">Разрешение:</span>
+                                <span class="stat-value" id="after-dimensions">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-chart-line"></i>
+                                <span class="stat-label">Экономия:</span>
+                                <span class="stat-value savings" id="savings-percent">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="compression-controls">
+                    <div class="control-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="auto-optimize" checked>
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-text">
+                                <i class="fas fa-magic"></i>
+                                Авто-оптимизация
+                            </span>
+                        </label>
+                        <p class="control-hint">Автоматически выбрать оптимальные настройки</p>
+                    </div>
+
+                    <div class="control-group" id="quality-control">
+                        <div class="slider-header">
+                            <label for="quality-range">Качество</label>
+                            <span class="quality-value" id="quality-value">80%</span>
+                        </div>
+                        <input type="range" id="quality-range" min="1" max="100" value="80">
+                        <div class="slider-labels">
+                            <span>Низкое</span>
+                            <span>Среднее</span>
+                            <span>Высокое</span>
+                        </div>
+                    </div>
+
+                    <div class="control-group" id="format-control">
+                        <label for="output-format">Формат</label>
+                        <select id="output-format">
+                            <option value="image/webp">WebP (рекомендуется)</option>
+                            <option value="image/jpeg">JPEG</option>
+                            <option value="image/png">PNG</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary btn-large" id="compress-btn">
+                        <i class="fas fa-compress"></i>
+                        <span>Сжать Изображение</span>
+                    </button>
+                    <a class="btn btn-success btn-large" id="download-btn" style="display:none;">
+                        <i class="fas fa-download"></i>
+                        <span>Скачать</span>
+                    </a>
+                    <button class="btn btn-secondary btn-large" id="reset-btn">
+                        <i class="fas fa-redo"></i>
+                        <span>Новое изображение</span>
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="tool-info">
+                <h2><i class="fas fa-info-circle"></i> О Инструменте</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <i class="fas fa-bolt"></i>
+                        <h4>Быстро</h4>
+                        <p>Обработка происходит в браузере за секунды</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Безопасно</h4>
+                        <p>Файлы не загружаются на сервер</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-magic"></i>
+                        <h4>Умно</h4>
+                        <p>Авто-оптимизация подберёт лучшие настройки</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-image"></i>
+                        <h4>Качественно</h4>
+                        <p>Современные алгоритмы сжатия</p>
+                    </div>
+                </div>
+                
+                <h3>Поддерживаемые форматы</h3>
+                <ul class="format-list">
+                    <li><i class="fas fa-check"></i> JPEG / JPG</li>
+                    <li><i class="fas fa-check"></i> PNG</li>
+                    <li><i class="fas fa-check"></i> WebP</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 ToolHub. Все права защищены.</p>
+                <p>Создано SonicWave Studio</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/tools.js"></script>
+</body>
+</html>

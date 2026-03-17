@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JSON форматтер онлайн. Форматируйте, минифицируйте и проверяйте JSON данные бесплатно.">
+    <meta name="keywords" content="JSON форматтер, JSON валидатор, форматирование JSON, онлайн инструмент">
+    <meta name="author" content="SonicWave Studio">
+    <meta name="robots" content="index, follow">
+    
+    <title>JSON Форматтер — ToolHub</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-icon"><i class="fas fa-cube"></i></span>
+                <span class="logo-text">ToolHub</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html" class="nav-link">Главная</a></li>
+                <li><a href="../tools.html" class="nav-link active">Инструменты</a></li>
+                <li><a href="../about.html" class="nav-link">О нас</a></li>
+                <li><a href="../contact.html" class="nav-link">Контакты</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle"><span class="hamburger"></span></button>
+        </div>
+    </nav>
+
+    <main class="tool-page">
+        <div class="container">
+            <div class="tool-page-header">
+                <h1>JSON Форматтер</h1>
+                <p>Форматируйте, минифицируйте и проверяйте JSON данные</p>
+            </div>
+
+            <div class="tool-interface">
+                <div class="form-group">
+                    <label>Входной JSON</label>
+                    <textarea id="json-input" placeholder="Вставьте ваш JSON здесь..." style="font-family:monospace;"></textarea>
+                </div>
+                <div class="button-group" style="display:flex;gap:10px;margin:15px 0;">
+                    <button class="btn btn-primary" id="json-format">Форматировать</button>
+                    <button class="btn btn-primary" id="json-minify">Минифицировать</button>
+                    <button class="btn btn-primary" id="json-validate">Проверить</button>
+                </div>
+                <div class="form-group">
+                    <label>Результат</label>
+                    <textarea id="json-output" placeholder="Результат появится здесь..." readonly style="font-family:monospace;"></textarea>
+                </div>
+                <div class="validation-status" id="json-status"></div>
+            </div>
+
+            <div class="tool-info">
+                <h2>О Инструменте</h2>
+                <p>Инструмент для работы с JSON данными для разработчиков.</p>
+                <ul>
+                    <li>✓ Форматирование с отступами</li>
+                    <li>✓ Минификация для продакшена</li>
+                    <li>✓ Валидация синтаксиса</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 ToolHub. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/tools.js"></script>
+</body>
+</html>

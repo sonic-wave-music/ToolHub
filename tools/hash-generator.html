@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Генератор хешей онлайн. Создавайте криптографические хеши MD5, SHA-1, SHA-256 бесплатно.">
+    <meta name="keywords" content="генератор хешей, MD5, SHA-256, SHA-1, криптография, онлайн инструмент">
+    <meta name="author" content="SonicWave Studio">
+    <meta name="robots" content="index, follow">
+    
+    <title>Генератор Хешей — ToolHub</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-icon"><i class="fas fa-cube"></i></span>
+                <span class="logo-text">ToolHub</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html" class="nav-link">Главная</a></li>
+                <li><a href="../tools.html" class="nav-link active">Инструменты</a></li>
+                <li><a href="../about.html" class="nav-link">О нас</a></li>
+                <li><a href="../contact.html" class="nav-link">Контакты</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle"><span class="hamburger"></span></button>
+        </div>
+    </nav>
+
+    <main class="tool-page">
+        <div class="container">
+            <div class="tool-page-header">
+                <h1>Генератор Хешей</h1>
+                <p>Создавайте криптографические хеши онлайн</p>
+            </div>
+
+            <div class="tool-interface">
+                <div class="form-group">
+                    <label>Входной текст</label>
+                    <textarea id="hash-input" placeholder="Введите текст для хеширования..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Алгоритм</label>
+                    <select id="hash-algorithm">
+                        <option value="SHA-256">SHA-256</option>
+                        <option value="SHA-1">SHA-1</option>
+                        <option value="MD5">MD5</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" id="generate-hash">Сгенерировать Хеш</button>
+                <div class="hash-output" id="hash-result" style="margin-top:15px;padding:15px;background:var(--bg-tertiary);border-radius:8px;word-break:break-all;font-family:monospace;font-size:0.875rem;"></div>
+            </div>
+
+            <div class="tool-info">
+                <h2>О Инструменте</h2>
+                <p>Генерируйте криптографические хеши различных алгоритмов.</p>
+                <ul>
+                    <li>✓ SHA-256 (безопасный)</li>
+                    <li>✓ SHA-1 (устаревший)</li>
+                    <li>✓ MD5 (для совместимости)</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 ToolHub. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/tools.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Генератор UUID онлайн. Создавайте уникальные идентификаторы UUID версии 4 бесплатно.">
+    <meta name="keywords" content="UUID генератор, уникальный идентификатор, GUID, онлайн инструмент">
+    <meta name="author" content="SonicWave Studio">
+    <meta name="robots" content="index, follow">
+    
+    <title>Генератор UUID — ToolHub</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-icon"><i class="fas fa-cube"></i></span>
+                <span class="logo-text">ToolHub</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html" class="nav-link">Главная</a></li>
+                <li><a href="../tools.html" class="nav-link active">Инструменты</a></li>
+                <li><a href="../about.html" class="nav-link">О нас</a></li>
+                <li><a href="../contact.html" class="nav-link">Контакты</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle"><span class="hamburger"></span></button>
+        </div>
+    </nav>
+
+    <main class="tool-page">
+        <div class="container">
+            <div class="tool-page-header">
+                <h1>Генератор UUID</h1>
+                <p>Создавайте уникальные идентификаторы UUID версии 4</p>
+            </div>
+
+            <div class="tool-interface">
+                <div style="display:flex;gap:10px;margin-bottom:15px;">
+                    <input type="text" id="uuid-result" readonly style="flex:1;font-family:monospace;">
+                    <button class="btn-icon" id="copy-uuid" title="Копировать"><i class="fas fa-copy"></i></button>
+                </div>
+                <div class="form-group">
+                    <label>Количество: <input type="number" id="uuid-count" min="1" max="20" value="1" style="width:60px;padding:5px;margin-left:10px;"></label>
+                </div>
+                <button class="btn btn-primary" id="generate-uuid">Сгенерировать UUID</button>
+            </div>
+
+            <div class="tool-info">
+                <h2>О Инструменте</h2>
+                <p>UUID (Universally Unique Identifier) — 128-битный уникальный идентификатор.</p>
+                <ul>
+                    <li>✓ UUID версии 4 (случайный)</li>
+                    <li>✓ Генерация до 20 UUID за раз</li>
+                    <li>✓ Копирование в буфер</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 ToolHub. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/tools.js"></script>
+</body>
+</html>

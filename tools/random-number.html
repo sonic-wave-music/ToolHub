@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Генератор случайных чисел онлайн. Создавайте случайные числа в заданном диапазоне бесплатно.">
+    <meta name="keywords" content="случайные числа, генератор чисел, рандом, онлайн генератор">
+    <meta name="author" content="SonicWave Studio">
+    <meta name="robots" content="index, follow">
+    
+    <title>Генератор Случайных Чисел — ToolHub</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-icon"><i class="fas fa-cube"></i></span>
+                <span class="logo-text">ToolHub</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html" class="nav-link">Главная</a></li>
+                <li><a href="../tools.html" class="nav-link active">Инструменты</a></li>
+                <li><a href="../about.html" class="nav-link">О нас</a></li>
+                <li><a href="../contact.html" class="nav-link">Контакты</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle"><span class="hamburger"></span></button>
+        </div>
+    </nav>
+
+    <main class="tool-page">
+        <div class="container">
+            <div class="tool-page-header">
+                <h1>Генератор Случайных Чисел</h1>
+                <p>Генерируйте случайные числа в заданном диапазоне</p>
+            </div>
+
+            <div class="tool-interface">
+                <div class="form-group" style="display:flex;gap:10px;">
+                    <input type="number" id="random-min" placeholder="Мин" value="1">
+                    <input type="number" id="random-max" placeholder="Макс" value="100">
+                </div>
+                <div class="random-output" id="random-result" style="font-size:3rem;font-weight:700;text-align:center;padding:30px;background:var(--bg-tertiary);border-radius:8px;margin:15px 0;color:var(--primary);">-</div>
+                <button class="btn btn-primary" id="generate-random">Сгенерировать</button>
+            </div>
+
+            <div class="tool-info">
+                <h2>О Инструменте</h2>
+                <p>Генерируйте криптографически безопасные случайные числа.</p>
+                <ul>
+                    <li>✓ Криптографическая безопасность</li>
+                    <li>✓ Настраиваемый диапазон</li>
+                    <li>✓ Мгновенный результат</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 ToolHub. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/tools.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Конвертер временных меток онлайн. Конвертируйте между Unix timestamp и читаемой датой бесплатно.">
+    <meta name="keywords" content="конвертер времени, timestamp, Unix время, конвертер дат, онлайн инструмент">
+    <meta name="author" content="SonicWave Studio">
+    <meta name="robots" content="index, follow">
+    
+    <title>Конвертер Времени — ToolHub</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-icon"><i class="fas fa-cube"></i></span>
+                <span class="logo-text">ToolHub</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html" class="nav-link">Главная</a></li>
+                <li><a href="../tools.html" class="nav-link active">Инструменты</a></li>
+                <li><a href="../about.html" class="nav-link">О нас</a></li>
+                <li><a href="../contact.html" class="nav-link">Контакты</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle"><span class="hamburger"></span></button>
+        </div>
+    </nav>
+
+    <main class="tool-page">
+        <div class="container">
+            <div class="tool-page-header">
+                <h1>Конвертер Времени</h1>
+                <p>Конвертируйте между Unix timestamp и датой</p>
+            </div>
+
+            <div class="tool-interface">
+                <div class="form-group" style="display:flex;gap:10px;">
+                    <input type="text" id="timestamp-input" placeholder="Введите timestamp..." style="flex:1;">
+                    <button class="btn btn-primary" id="timestamp-to-date">В Дату</button>
+                </div>
+                <div class="form-group" style="display:flex;gap:10px;">
+                    <input type="datetime-local" id="date-input" style="flex:1;">
+                    <button class="btn btn-primary" id="date-to-timestamp">В Timestamp</button>
+                </div>
+                <div class="timestamp-result" id="timestamp-result" style="margin-top:15px;padding:15px;background:var(--bg-tertiary);border-radius:8px;text-align:center;"></div>
+            </div>
+
+            <div class="tool-info">
+                <h2>О Инструменте</h2>
+                <p>Конвертируйте между Unix timestamp (секунды с 1970) и читаемой датой.</p>
+                <ul>
+                    <li>✓ Timestamp → Дата</li>
+                    <li>✓ Дата → Timestamp</li>
+                    <li>✓ Поддержка локального времени</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 ToolHub. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/tools.js"></script>
+</body>
+</html>
