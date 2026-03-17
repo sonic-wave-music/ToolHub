@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Свяжитесь с командой ToolHub. Есть вопросы или предложения? Напишите нам!">
+    <meta name="keywords" content="контакты ToolHub, поддержка, обратная связь, связь">
+    <meta name="author" content="SonicWave Studio">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Контакты — ToolHub">
+    <meta property="og:description" content="Свяжитесь с нами для вопросов и предложений.">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Контакты — ToolHub">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://yourdomain.com/contact.html">
+    
+    <title>Контакты — ToolHub | Связаться с Нами</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("UQQfDAj7dHV1xMXAC");
+        })();
+    </script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon"><i class="fas fa-cube"></i></span>
+                <span class="logo-text">ToolHub</span>
+            </a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Главная</a></li>
+                <li><a href="tools.html" class="nav-link">Инструменты</a></li>
+                <li><a href="about.html" class="nav-link">О нас</a></li>
+                <li><a href="contact.html" class="nav-link active">Контакты</a></li>
+            </ul>
+            
+            <button class="nav-toggle" id="nav-toggle" aria-label="Переключить меню">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Контакты</h1>
+            <p>Мы всегда рады обратной связи</p>
+        </div>
+    </header>
+
+    <!-- Contact Content -->
+    <main class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h2>Свяжитесь с Нами</h2>
+                        <p>
+                            Есть вопросы, предложения или нашли ошибку? Напишите нам, 
+                            и мы обязательно ответим в ближайшее время.
+                        </p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p>contact@toolhub.example</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <h4>Время Ответа</h4>
+                                    <p>Обычно в течение 24 часов</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card social-card">
+                        <h2>Социальные Сети</h2>
+                        <div class="contact-social">
+                            <a href="https://www.instagram.com/ilya_kzo/" target="_blank" rel="noopener" class="social-btn">
+                                <i class="fab fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="https://sonic-wave-music.github.io/Sonicwave/" target="_blank" rel="noopener" class="social-btn">
+                                <i class="fas fa-music"></i>
+                                <span>SonicWave Studio</span>
+                            </a>
+                            <a href="https://www.instagram.com/sonicwave.studio/" target="_blank" rel="noopener" class="social-btn">
+                                <i class="fab fa-instagram"></i>
+                                <span>SonicWave Instagram</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <div class="contact-card">
+                        <h2>Отправить Сообщение</h2>
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-group">
+                                <label for="name">Ваше Имя</label>
+                                <input type="text" id="name" name="name" required placeholder="Иван Иванов">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required placeholder="your@email.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Сообщение</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="Ваше сообщение..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+                                <span>Отправить Сообщение</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                        
+                        <div class="form-status" id="form-status"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <span class="logo-icon"><i class="fas fa-cube"></i></span>
+                        <span class="logo-text">ToolHub</span>
+                    </a>
+                    <p>Бесплатные онлайн-инструменты для всех. Работают в браузере без загрузок.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Навигация</h4>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="tools.html">Инструменты</a></li>
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="contact.html">Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Документы</h4>
+                    <ul>
+                        <li><a href="privacy.html">Политика Конфиденциальности</a></li>
+                        <li><a href="#">Условия Использования</a></li>
+                        <li><a href="#">Cookie Политика</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Мы в Соцсетях</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/ilya_kzo/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://sonic-wave-music.github.io/Sonicwave/" target="_blank" rel="noopener" class="social-link" aria-label="SonicWave Studio">
+                            <i class="fas fa-music"></i>
+                        </a>
+                        <a href="https://www.instagram.com/sonicwave.studio/" target="_blank" rel="noopener" class="social-link" aria-label="SonicWave Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 ToolHub. Все права защищены.</p>
+                <p>Создано SonicWave Studio</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

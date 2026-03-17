@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Все онлайн-инструменты ToolHub в одном месте. Конвертеры изображений, текстовые утилиты, генераторы, инструменты для разработчиков.">
+    <meta name="keywords" content="онлайн инструменты, все инструменты, конвертер, генератор, утилиты для разработчиков">
+    <meta name="author" content="SonicWave Studio">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Все Инструменты — ToolHub">
+    <meta property="og:description" content="Полный каталог бесплатных онлайн-инструментов.">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Все Инструменты — ToolHub">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://yourdomain.com/tools.html">
+    
+    <title>Все Инструменты — ToolHub | Полный Каталог Онлайн Утилит</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles - ИСПРАВЛЕННЫЙ ПУТЬ -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon"><i class="fas fa-cube"></i></span>
+                <span class="logo-text">ToolHub</span>
+            </a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Главная</a></li>
+                <li><a href="tools.html" class="nav-link active">Инструменты</a></li>
+                <li><a href="about.html" class="nav-link">О нас</a></li>
+                <li><a href="contact.html" class="nav-link">Контакты</a></li>
+            </ul>
+            
+            <button class="nav-toggle" id="nav-toggle" aria-label="Переключить меню">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Все Инструменты</h1>
+            <p>Полный каталог бесплатных онлайн-утилит</p>
+        </div>
+    </header>
+
+    <!-- Ad Placeholder -->
+    <div class="ad-container ad-banner">
+        <div class="ad-placeholder">
+            <span>Рекламное Место</span>
+        </div>
+    </div>
+
+    <!-- Tools Section -->
+    <main class="tools-catalog">
+        <div class="container">
+            <!-- Filter Tabs -->
+            <div class="tools-filter">
+                <button class="filter-btn active" data-filter="all">Все</button>
+                <button class="filter-btn" data-filter="image">Изображения</button>
+                <button class="filter-btn" data-filter="text">Текст</button>
+                <button class="filter-btn" data-filter="developer">Разработчикам</button>
+                <button class="filter-btn" data-filter="generators">Генераторы</button>
+            </div>
+
+            <!-- Image Tools -->
+            <section class="tools-category" id="image-tools">
+                <h2 class="category-title"><i class="fas fa-image"></i> Инструменты для Изображений</h2>
+                
+                <div class="tools-grid">
+                    <a href="tools/png-to-jpg.html" class="tool-card" data-category="image">
+                        <div class="tool-header">
+                            <div class="tool-icon"><i class="fas fa-file-image"></i></div>
+                            <h3 class="tool-title">PNG в JPG</h3>
+                        </div>
+                        <p class="tool-description">Конвертируйте PNG в JPG формат</p>
+                        <span class="tool-link">Открыть <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="tools/jpg-to-png.html" class="tool-card" data-category="image">
+                        <div class="tool-header">
+                            <div class="tool-icon"><i class="fas fa-file-image"></i></div>
+                            <h3 class="tool-title">JPG в PNG</h3>
+                        </div>
+                        <p class="tool-description">Конвертируйте JPG в PNG формат</p>
+                        <span class="tool-link">Открыть <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="tools/image-resize.html" class="tool-card" data-category="image">
+                        <div class="tool-header">
+                            <div class="tool-icon"><i class="fas fa-expand-arrows-alt"></i></div>
+                            <h3 class="tool-title">Изменение Размера</h3>
+                        </div>
+                        <p class="tool-description">Изменяйте размер изображений</p>
+                        <span class="tool-link">Открыть <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="tools/image-compression.html" class="tool-card" data-category="image">
+                        <div class="tool-header">
+                            <div class="tool-icon"><i class="fas fa-compress-arrows-alt"></i></div>
+                            <h3 class="tool-title">Сжатие Изображений</h3>
+                        </div>
+                        <p class="tool-description">Сжимайте изображения без потери качества</p>
+                        <span class="tool-link">Открыть <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Text Tools -->
+            <section class="tools-category" id="text-tools">
+                <h2 class="category-title"><i class="fas fa-font"></i> Текстовые Инструменты</h2>
+                
+                <div class="tools-grid">
+                    <a href="tools/word-counter.html" class="tool-card" data-category="text">
+                        <div class="tool-header">
+                            <div class="tool-icon"><i class="fas fa-calculator"></i></div>
+                            <h3 class="tool-title">Счётчик Слов</h3>
+                        </div>
+                        <p class="tool-description">Подсчёт слов, символов и строк</p>
+                        <span class="tool-link">Открыть <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="tools/text-uppercase.html" class="tool-card" data-category="text">
+                        <div class="tool-header">
+                            <div class="tool-icon"><i class="fas fa-text-height"></i></div>
+                            <h3 class="tool-title">В Верхний Регистр</h3>
+                        </div>
+                        <p class="tool-description">Преобразуйте текст в верхний регистр</p>
+                        <span class="tool-link">Открыть <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="tools/text-lowercase.html" class="tool-card" data-category="text">
+                        <div class="tool-header">
+                            <div class="tool-icon"><i class="fas fa-text-width"></i></div>
+                            <h3 class="tool-title">В Нижний Регистр</h3>
+                        </div>
+                        <p class="tool-description">Преобразуйте текст в нижний регистр</p>
+                        <span class="tool-link">Открыть <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="tools/remove-spaces.html" class="tool-card" data-category="text">
+                        <div class="tool-header">
+                            <div class="tool-icon"><i class="fas fa-eraser"></i></div>
+                            <h3 class="tool-title">Удаление Пробелов</h3>
+                        </div>
+                        <p class="tool-description">Удалите лишние пробелы из текста</p>
+                        <span class="tool-link">Открыть <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="tools/url-encoder.html" class="tool-card" data-category="text">
+                        <div class="tool-header">
+                            <div class="tool-icon"><i class="fas fa-link"></i></div>
+                            <h3 class="tool-title">URL Кодирование</h3>
+                        </div>
+                        <p class="tool-description">Кодируйте URL для безопасного использования</p>
+                        <span class="tool-link">Открыть <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="tools/url-decoder.html" class="tool-card" data-category="text">
+                        <div class="tool-header">
+                            <div class="tool-icon"><i class="fas fa-unlink"></i></div>
+                            <h3 class="tool-title">URL Декодирование</h3>
+                        </div>
+                        <p class="tool-description">Декодируйте закодированные URL</p>
+                        <span class="tool-link">Открыть <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Developer Tools -->
+            <section class="tools-category" id="developer-tools">
+                <h2 class="category-title"><i class="fas fa-code"></i> Инструменты Разработчика</h2>
+                
+                <div class="tools-grid">
+                    <a href="tools/json-formatter.html" class="tool-card" data-category="developer">
+                        <div class="tool-header">
+                            <div class="tool-icon"><i class="fas fa-brackets-curly"></i></div>
+                            <h3 class="tool-title">JSON Форматтер</h3>
+                        </div>
+                        <p class="tool-description">Форматирование и проверка JSON</p>
+                        <span class="tool-link">Открыть <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="tools/base64-tool.html" class="tool-card" data-category="developer">
+                        <div class="tool-header">
+                            <div class="tool-icon"><i class="fas fa-exchange-alt"></i></div>
+                            <h3 class="tool-title">Base64 Конвертер</h3>
+                        </div>
+                        <p class="tool-description">Кодирование и декодирование Base64</p>
+                        <span class="tool-link">Открыть <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="tools/hash-generator.html" class="tool-card" data-category="developer">
+                        <div class="tool-header">
+                            <div class="tool-icon"><i class="fas fa-hashtag"></i></div>
+                            <h3 class="tool-title">Генератор Хешей</h3>
+                        </div>
+                        <p class="tool-description">Создание криптографических хешей</p>
+                        <span class="tool-link">Открыть <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Generators -->
+            <section class="tools-category" id="generators">
+                <h2 class="category-title"><i class="fas fa-magic"></i> Генераторы</h2>
+                
+                <div class="tools-grid">
+                    <a href="tools/password-generator.html" class="tool-card" data-category="generators">
+                        <div class="tool-header">
+                            <div class="tool-icon"><i class="fas fa-key"></i></div>
+                            <h3 class="tool-title">Генератор Паролей</h3>
+                        </div>
+                        <p class="tool-description">Создание безопасных паролей</p>
+                        <span class="tool-link">Открыть <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="tools/uuid-generator.html" class="tool-card" data-category="generators">
+                        <div class="tool-header">
+                            <div class="tool-icon"><i class="fas fa-fingerprint"></i></div>
+                            <h3 class="tool-title">Генератор UUID</h3>
+                        </div>
+                        <p class="tool-description">Генерация уникальных идентификаторов</p>
+                        <span class="tool-link">Открыть <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="tools/random-number.html" class="tool-card" data-category="generators">
+                        <div class="tool-header">
+                            <div class="tool-icon"><i class="fas fa-dice"></i></div>
+                            <h3 class="tool-title">Случайное Число</h3>
+                        </div>
+                        <p class="tool-description">Генерация случайных чисел</p>
+                        <span class="tool-link">Открыть <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="tools/qr-generator.html" class="tool-card" data-category="generators">
+                        <div class="tool-header">
+                            <div class="tool-icon"><i class="fas fa-qrcode"></i></div>
+                            <h3 class="tool-title">QR Код Генератор</h3>
+                        </div>
+                        <p class="tool-description">Создание QR кодов</p>
+                        <span class="tool-link">Открыть <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="tools/color-converter.html" class="tool-card" data-category="generators">
+                        <div class="tool-header">
+                            <div class="tool-icon"><i class="fas fa-palette"></i></div>
+                            <h3 class="tool-title">Конвертер Цветов</h3>
+                        </div>
+                        <p class="tool-description">Конвертация между форматами цветов</p>
+                        <span class="tool-link">Открыть <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="tools/timestamp-converter.html" class="tool-card" data-category="generators">
+                        <div class="tool-header">
+                            <div class="tool-icon"><i class="fas fa-clock"></i></div>
+                            <h3 class="tool-title">Конвертер Времени</h3>
+                        </div>
+                        <p class="tool-description">Конвертация временных меток</p>
+                        <span class="tool-link">Открыть <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Ad Placeholder -->
+    <div class="ad-container ad-banner">
+        <div class="ad-placeholder">
+            <span>Рекламное Место</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <span class="logo-icon"><i class="fas fa-cube"></i></span>
+                        <span class="logo-text">ToolHub</span>
+                    </a>
+                    <p>Бесплатные онлайн-инструменты для всех. Работают в браузере без загрузок.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Навигация</h4>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="tools.html">Инструменты</a></li>
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="contact.html">Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Документы</h4>
+                    <ul>
+                        <li><a href="privacy.html">Политика Конфиденциальности</a></li>
+                        <li><a href="#">Условия Использования</a></li>
+                        <li><a href="#">Cookie Политика</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Мы в Соцсетях</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/ilya_kzo/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://sonic-wave-music.github.io/Sonicwave/" target="_blank" rel="noopener" class="social-link" aria-label="SonicWave Studio">
+                            <i class="fas fa-music"></i>
+                        </a>
+                        <a href="https://www.instagram.com/sonicwave.studio/" target="_blank" rel="noopener" class="social-link" aria-label="SonicWave Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 ToolHub. Все права защищены.</p>
+                <p>Создано SonicWave Studio</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
