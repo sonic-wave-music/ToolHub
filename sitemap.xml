@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+    <!-- Main Pages -->
+    <url>
+        <loc>https://1nexaro.github.io/ToolHub/index.html</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <url>
+        <loc>https://1nexaro.github.io/ToolHub/tools.html</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://1nexaro.github.io/ToolHub/about.html</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://1nexaro.github.io/ToolHub/contact.html</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://1nexaro.github.io/ToolHub/privacy.html</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <!-- Tool Pages -->
+    <url>
+        <loc>https://1nexaro.github.io/ToolHub/tools/base64-tool.html</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://1nexaro.github.io/ToolHub/tools/color-converter.html</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://1nexaro.github.io/ToolHub/tools/hash-generator.html</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://1nexaro.github.io/ToolHub/tools/image-compression.html</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://1nexaro.github.io/ToolHub/tools/image-resize.html</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://1nexaro.github.io/ToolHub/tools/jpg-to-png.html</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://1nexaro.github.io/ToolHub/tools/json-formatter.html</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://1nexaro.github.io/ToolHub/tools/password-generator.html</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://1nexaro.github.io/ToolHub/tools/png-to-jpg.html</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://1nexaro.github.io/ToolHub/tools/qr-generator.html</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://1nexaro.github.io/ToolHub/tools/random-number.html</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://1nexaro.github.io/ToolHub/tools/remove-spaces.html</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://1nexaro.github.io/ToolHub/tools/text-lowercase.html</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://1nexaro.github.io/ToolHub/tools/text-uppercase.html</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://1nexaro.github.io/ToolHub/tools/timestamp-converter.html</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://1nexaro.github.io/ToolHub/tools/url-decoder.html</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://1nexaro.github.io/ToolHub/tools/url-encoder.html</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://1nexaro.github.io/ToolHub/tools/uuid-generator.html</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://1nexaro.github.io/ToolHub/tools/word-counter.html</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+</urlset>

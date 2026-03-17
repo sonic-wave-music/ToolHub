@@ -1,0 +1,21 @@
+# ToolHub - Robots.txt
+# Разрешает индексацию всех страниц для поисковых систем
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://1nexaro.github.io/ToolHub/sitemap.xml
+
+# Allow all crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+# Disallow nothing (all pages can be indexed)
+# No private or admin sections on this static site
