@@ -12,10 +12,12 @@
     <meta property="og:title" content="Контакты — ToolHub">
     <meta property="og:description" content="Свяжитесь с нами для вопросов и предложений.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://1nexaro.github.io/ToolHub/contact.html">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Контакты — ToolHub">
+    <meta name="twitter:description" content="Свяжитесь с нами для вопросов и предложений.">
     
     <!-- Canonical -->
     <link rel="canonical" href="https://1nexaro.github.io/ToolHub/contact.html">
@@ -40,13 +42,61 @@
     
     <!-- Styles -->
     <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Inline Critical CSS for form feedback -->
+    <style>
+        .form-status {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            border-radius: 8px;
+            font-weight: 500;
+            text-align: center;
+            display: none;
+        }
+        .form-status.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        .form-status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .form-status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        .btn .spinner {
+            display: none;
+            margin-left: 0.5rem;
+            animation: spin 1s linear infinite;
+        }
+        .btn.loading .spinner {
+            display: inline-block;
+        }
+        .btn.loading span {
+            margin-right: 0.5rem;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Основная навигация">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <span class="logo-icon"><i class="fas fa-cube"></i></span>
+            <a href="index.html" class="nav-logo" aria-label="ToolHub — на главную">
+                <span class="logo-icon" aria-hidden="true"><i class="fas fa-cube"></i></span>
                 <span class="logo-text">ToolHub</span>
             </a>
             
@@ -54,11 +104,11 @@
                 <li><a href="index.html" class="nav-link">Главная</a></li>
                 <li><a href="tools.html" class="nav-link">Инструменты</a></li>
                 <li><a href="about.html" class="nav-link">О нас</a></li>
-                <li><a href="contact.html" class="nav-link active">Контакты</a></li>
+                <li><a href="contact.html" class="nav-link active" aria-current="page">Контакты</a></li>
             </ul>
             
-            <button class="nav-toggle" id="nav-toggle" aria-label="Переключить меню">
-                <span class="hamburger"></span>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Переключить меню" aria-expanded="false" aria-controls="nav-menu">
+                <span class="hamburger" aria-hidden="true"></span>
             </button>
         </div>
     </nav>
@@ -85,15 +135,15 @@
                         
                         <div class="contact-details">
                             <div class="contact-item">
-                                <i class="fas fa-envelope"></i>
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
                                 <div>
                                     <h4>Email</h4>
-                                    <p>contact@toolhub.example</p>
+                                    <p><a href="mailto:contact@toolhub.example">contact@toolhub.example</a></p>
                                 </div>
                             </div>
                             
                             <div class="contact-item">
-                                <i class="fas fa-clock"></i>
+                                <i class="fas fa-clock" aria-hidden="true"></i>
                                 <div>
                                     <h4>Время Ответа</h4>
                                     <p>Обычно в течение 24 часов</p>
@@ -105,16 +155,16 @@
                     <div class="contact-card social-card">
                         <h2>Социальные Сети</h2>
                         <div class="contact-social">
-                            <a href="https://www.instagram.com/ilya_kzo/" target="_blank" rel="noopener" class="social-btn">
-                                <i class="fab fa-instagram"></i>
+                            <a href="https://www.instagram.com/ilya_kzo/" target="_blank" rel="noopener noreferrer" class="social-btn">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
                                 <span>Instagram</span>
                             </a>
-                            <a href="https://sonic-wave-music.github.io/Sonicwave/" target="_blank" rel="noopener" class="social-btn">
-                                <i class="fas fa-music"></i>
+                            <a href="https://sonic-wave-music.github.io/Sonicwave/" target="_blank" rel="noopener noreferrer" class="social-btn">
+                                <i class="fas fa-music" aria-hidden="true"></i>
                                 <span>SonicWave Studio</span>
                             </a>
-                            <a href="https://www.instagram.com/sonicwave.studio/" target="_blank" rel="noopener" class="social-btn">
-                                <i class="fab fa-instagram"></i>
+                            <a href="https://www.instagram.com/sonicwave.studio/" target="_blank" rel="noopener noreferrer" class="social-btn">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
                                 <span>SonicWave Instagram</span>
                             </a>
                         </div>
@@ -124,29 +174,58 @@
                 <div class="contact-form-wrapper">
                     <div class="contact-card">
                         <h2>Отправить Сообщение</h2>
-                        <form class="contact-form" id="contact-form">
+                        <form class="contact-form" id="contact-form" novalidate>
                             <div class="form-group">
-                                <label for="name">Ваше Имя</label>
-                                <input type="text" id="name" name="name" required placeholder="Иван Иванов">
+                                <label for="name">Ваше Имя <span aria-hidden="true">*</span></label>
+                                <input 
+                                    type="text" 
+                                    id="name" 
+                                    name="name" 
+                                    required 
+                                    placeholder="Иван Иванов"
+                                    pattern="^[\p{L}\p{M}\s'\-\.]{2,50}$"
+                                    title="Пожалуйста, введите имя от 2 до 50 символов"
+                                    autocomplete="name"
+                                >
+                                <small class="form-error" id="name-error"></small>
                             </div>
                             
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required placeholder="your@email.com">
+                                <label for="email">Email <span aria-hidden="true">*</span></label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    required 
+                                    placeholder="your@email.com"
+                                    autocomplete="email"
+                                >
+                                <small class="form-error" id="email-error"></small>
                             </div>
                             
                             <div class="form-group">
-                                <label for="message">Сообщение</label>
-                                <textarea id="message" name="message" rows="5" required placeholder="Ваше сообщение..."></textarea>
+                                <label for="message">Сообщение <span aria-hidden="true">*</span></label>
+                                <textarea 
+                                    id="message" 
+                                    name="message" 
+                                    rows="5" 
+                                    required 
+                                    placeholder="Ваше сообщение..."
+                                    minlength="10"
+                                    maxlength="1000"
+                                ></textarea>
+                                <small class="form-hint">Минимум 10 символов</small>
+                                <small class="form-error" id="message-error"></small>
                             </div>
                             
                             <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
                                 <span>Отправить Сообщение</span>
-                                <i class="fas fa-paper-plane"></i>
+                                <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                                <span class="spinner"><i class="fas fa-spinner" aria-hidden="true"></i></span>
                             </button>
                         </form>
                         
-                        <div class="form-status" id="form-status"></div>
+                        <div class="form-status" id="form-status" role="alert" aria-live="polite"></div>
                     </div>
                 </div>
             </div>
@@ -158,8 +237,8 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="footer-logo">
-                        <span class="logo-icon"><i class="fas fa-cube"></i></span>
+                    <a href="index.html" class="footer-logo" aria-label="ToolHub — на главную">
+                        <span class="logo-icon" aria-hidden="true"><i class="fas fa-cube"></i></span>
                         <span class="logo-text">ToolHub</span>
                     </a>
                     <p>Бесплатные онлайн-инструменты для всех. Работают в браузере без загрузок.</p>
@@ -187,14 +266,14 @@
                 <div class="footer-social">
                     <h4>Мы в Соцсетях</h4>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/ilya_kzo/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
+                        <a href="https://www.instagram.com/ilya_kzo/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
                         </a>
-                        <a href="https://sonic-wave-music.github.io/Sonicwave/" target="_blank" rel="noopener" class="social-link" aria-label="SonicWave Studio">
-                            <i class="fas fa-music"></i>
+                        <a href="https://sonic-wave-music.github.io/Sonicwave/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="SonicWave Studio">
+                            <i class="fas fa-music" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.instagram.com/sonicwave.studio/" target="_blank" rel="noopener" class="social-link" aria-label="SonicWave Instagram">
-                            <i class="fab fa-instagram"></i>
+                        <a href="https://www.instagram.com/sonicwave.studio/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="SonicWave Instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
@@ -202,7 +281,7 @@
             
             <div class="footer-bottom">
                 <p>&copy; 2026 ToolHub. Все права защищены.</p>
-                <p>Создано SonicWave Studio</p>
+                <p>Создано <a href="https://sonic-wave-music.github.io/Sonicwave/" target="_blank" rel="noopener">SonicWave Studio</a></p>
             </div>
         </div>
     </footer>
@@ -210,42 +289,117 @@
     <!-- Scripts -->
     <script src="assets/js/main.js"></script>
     <script>
-document.addEventListener("DOMContentLoaded", function() {
-
-    const form = document.getElementById("contact-form");
-    const btn = document.getElementById("submit-btn");
-    const status = document.getElementById("form-status");
-
-    form.addEventListener("submit", function(e) {
-        e.preventDefault();
-
-        btn.disabled = true;
-        btn.innerText = "Отправка...";
-
-        const params = {
-            name: document.getElementById("name").value,
-            email: document.getElementById("email").value,
-            message: document.getElementById("message").value
+    document.addEventListener("DOMContentLoaded", function() {
+        const form = document.getElementById("contact-form");
+        const btn = document.getElementById("submit-btn");
+        const status = document.getElementById("form-status");
+        
+        // Поля формы
+        const fields = {
+            name: document.getElementById("name"),
+            email: document.getElementById("email"),
+            message: document.getElementById("message")
         };
 
-        emailjs.send("service_91o1jtd", "template_0n6ntpn", params)
-            .then(() => {
-                status.innerHTML = "✅ Отправлено!";
-                status.style.color = "green";
-                form.reset();
-            })
-            .catch((err) => {
-                status.innerHTML = "❌ Ошибка";
-                status.style.color = "red";
-                console.error(err);
-            })
-            .finally(() => {
-                btn.disabled = false;
-                btn.innerText = "Отправить";
-            });
-    });
+        // Валидация в реальном времени
+        Object.values(fields).forEach(field => {
+            field.addEventListener("blur", () => validateField(field));
+            field.addEventListener("input", () => clearError(field));
+        });
 
-});
-</script>
+        function validateField(field) {
+            const errorEl = document.getElementById(`${field.id}-error`);
+            if (!field.validity.valid) {
+                showError(field, errorEl, getErrorMessage(field));
+                return false;
+            }
+            clearError(field);
+            return true;
+        }
+
+        function getErrorMessage(field) {
+            if (field.validity.valueMissing) return "Это поле обязательно для заполнения";
+            if (field.validity.typeMismatch) {
+                if (field.type === "email") return "Введите корректный email";
+            }
+            if (field.validity.tooShort) return "Минимум 10 символов";
+            if (field.validity.tooLong) return "Максимум 1000 символов";
+            if (field.validity.patternMismatch) return field.title || "Неверный формат";
+            return "Пожалуйста, исправьте это поле";
+        }
+
+        function showError(field, errorEl, message) {
+            field.setAttribute("aria-invalid", "true");
+            field.style.borderColor = "#dc3545";
+            if (errorEl) {
+                errorEl.textContent = message;
+                errorEl.style.display = "block";
+            }
+        }
+
+        function clearError(field) {
+            field.setAttribute("aria-invalid", "false");
+            field.style.borderColor = "";
+            const errorEl = document.getElementById(`${field.id}-error`);
+            if (errorEl) {
+                errorEl.textContent = "";
+                errorEl.style.display = "none";
+            }
+        }
+
+        function showStatus(message, type) {
+            status.textContent = message;
+            status.className = `form-status show ${type}`;
+            status.style.display = "block";
+            
+            // Автоскрытие успеха через 5 сек
+            if (type === "success") {
+                setTimeout(() => {
+                    status.style.display = "none";
+                }, 5000);
+            }
+        }
+
+        form.addEventListener("submit", async function(e) {
+            e.preventDefault();
+
+            // Валидация всех полей
+            const isValid = Object.values(fields).every(field => validateField(field));
+            if (!isValid) {
+                showStatus("Пожалуйста, исправьте ошибки в форме", "error");
+                return;
+            }
+
+            // UI состояние загрузки
+            btn.disabled = true;
+            btn.classList.add("loading");
+            const originalBtnText = btn.innerHTML;
+
+            const params = {
+                name: fields.name.value.trim(),
+                email: fields.email.value.trim(),
+                message: fields.message.value.trim()
+            };
+
+            try {
+                await emailjs.send("service_91o1jtd", "template_0n6ntpn", params);
+                showStatus("✅ Сообщение отправлено! Мы ответим в ближайшее время.", "success");
+                form.reset();
+                Object.values(fields).forEach(clearError);
+            } catch (err) {
+                console.error("EmailJS Error:", err);
+                showStatus("❌ Ошибка отправки. Попробуйте позже или напишите на contact@toolhub.example", "error");
+            } finally {
+                btn.disabled = false;
+                btn.classList.remove("loading");
+            }
+        });
+
+        // Проверка загрузки EmailJS
+        if (typeof emailjs === "undefined") {
+            console.warn("EmailJS не загружен. Проверьте подключение к интернету.");
+        }
+    });
+    </script>
 </body>
 </html>
