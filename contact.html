@@ -126,6 +126,8 @@
                 <div class="contact-form-wrapper">
                     <div class="contact-card">
                         <h2>Отправить Сообщение</h2>
+                        
+                        <!-- Форма -->
                         <form class="contact-form" id="contact-form" novalidate>
                             <div class="form-group">
                                 <label for="name">Ваше Имя <span aria-hidden="true">*</span></label>
@@ -135,11 +137,10 @@
                                     name="name" 
                                     required 
                                     placeholder="Иван Иванов"
-                                    pattern="^[\p{L}\p{M}\s'\-\.]{2,50}$"
-                                    title="Пожалуйста, введите имя от 2 до 50 символов"
                                     autocomplete="name"
                                 >
                                 <small class="form-error" id="name-error"></small>
+                                <small class="form-hint">От 2 до 50 символов</small>
                             </div>
                             
                             <div class="form-group">
@@ -163,8 +164,6 @@
                                     rows="5" 
                                     required 
                                     placeholder="Ваше сообщение..."
-                                    minlength="10"
-                                    maxlength="1000"
                                 ></textarea>
                                 <small class="form-hint">Минимум 10 символов</small>
                                 <small class="form-error" id="message-error"></small>
@@ -177,6 +176,19 @@
                             </button>
                         </form>
                         
+                        <!-- Сообщение об успехе (скрыто по умолчанию) -->
+                        <div class="form-success" id="form-success">
+                            <div class="success-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h3>Сообщение отправлено!</h3>
+                            <p>Спасибо за обращение. Мы ответим вам в ближайшее время.</p>
+                            <button class="btn btn-secondary" id="reset-form-btn">
+                                <i class="fas fa-redo"></i> Отправить ещё
+                            </button>
+                        </div>
+                        
+                        <!-- Общий статус формы -->
                         <div class="form-status" id="form-status" role="alert" aria-live="polite"></div>
                     </div>
                 </div>
@@ -242,9 +254,12 @@
     <script src="assets/js/main.js"></script>
     <script>
     document.addEventListener("DOMContentLoaded", function() {
-        const form = document.getElementById("contact-form");
-        const btn = document.getElementById("submit-btn");
-        const status = document.getElementById("form-status");
+        // 🔧 Элементы формы
+        const contactForm = document.getElementById('contact-form');
+        const formSuccess = document.getElementById('form-success');
+        const formStatus = document.getElementById('form-status');
+        const submitBtn = document.getElementById('submit-btn');
+        const resetFormBtn = document.getElementById('reset-form-btn');
         
         // Поля формы
         const fields = {
@@ -253,53 +268,49 @@
             message: document.getElementById("message")
         };
 
-        // 🔧 Флаг блокировки blur-валидации
-        let isSubmitting = false;
-
-        // 🔧 Блокируем blur при клике на кнопку (срабатывает ДО blur полей)
-        btn.addEventListener("mousedown", function(e) {
-            e.preventDefault();
-            isSubmitting = true;
-        });
-        
-        btn.addEventListener("touchstart", function(e) {
-            e.preventDefault();
-            isSubmitting = true;
-        });
-
-        // Валидация полей
+        // 🔧 Скрываем успех при вводе (если пользователь хочет исправить)
         Object.values(fields).forEach(field => {
-            field.addEventListener("blur", () => {
-                if (!isSubmitting) validateField(field);
-            });
             field.addEventListener("input", () => {
-                if (!isSubmitting) clearError(field);
+                formSuccess.classList.remove("visible");
+                formStatus.classList.remove("show", "success", "error");
             });
         });
 
-        function validateField(field) {
-            const errorEl = document.getElementById(`${field.id}-error`);
-            if (!field.validity.valid) {
-                showError(field, errorEl, getErrorMessage(field));
-                return false;
+        // 🔧 Простая валидация только при отправке
+        function validateForm() {
+            let isValid = true;
+            
+            // Имя
+            if (!fields.name.value.trim() || fields.name.value.trim().length < 2) {
+                showError("name", "Введите имя (минимум 2 символа)");
+                isValid = false;
+            } else {
+                clearError("name");
             }
-            clearError(field);
-            return true;
+            
+            // Email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!fields.email.value.trim() || !emailRegex.test(fields.email.value.trim())) {
+                showError("email", "Введите корректный email");
+                isValid = false;
+            } else {
+                clearError("email");
+            }
+            
+            // Сообщение
+            if (!fields.message.value.trim() || fields.message.value.trim().length < 10) {
+                showError("message", "Минимум 10 символов");
+                isValid = false;
+            } else {
+                clearError("message");
+            }
+            
+            return isValid;
         }
 
-        function getErrorMessage(field) {
-            if (field.validity.valueMissing) return "Это поле обязательно для заполнения";
-            if (field.validity.typeMismatch) {
-                if (field.type === "email") return "Введите корректный email";
-            }
-            if (field.validity.tooShort) return "Минимум 10 символов";
-            if (field.validity.tooLong) return "Максимум 1000 символов";
-            if (field.validity.patternMismatch) return field.title || "Неверный формат";
-            return "Пожалуйста, исправьте это поле";
-        }
-
-        function showError(field, errorEl, message) {
-            field.setAttribute("aria-invalid", "true");
+        function showError(fieldId, message) {
+            const field = document.getElementById(fieldId);
+            const errorEl = document.getElementById(`${fieldId}-error`);
             field.style.borderColor = "var(--danger)";
             field.closest(".form-group")?.classList.add("error");
             if (errorEl) {
@@ -308,75 +319,68 @@
             }
         }
 
-        function clearError(field) {
-            field.setAttribute("aria-invalid", "false");
+        function clearError(fieldId) {
+            const field = document.getElementById(fieldId);
+            const errorEl = document.getElementById(`${fieldId}-error`);
             field.style.borderColor = "";
             field.closest(".form-group")?.classList.remove("error");
-            const errorEl = document.getElementById(`${field.id}-error`);
             if (errorEl) {
                 errorEl.textContent = "";
                 errorEl.classList.remove("show");
             }
         }
 
-        // 🔧 ПОЛНОСТЬЮ переписываем классы status (главное исправление!)
-        function showStatus(message, type) {
-            // Сначала скрываем и очищаем ВСЕ классы
-            status.classList.remove("show", "success", "error");
-            status.textContent = "";
-            
-            // Небольшая задержка для чистого переключения
-            requestAnimationFrame(() => {
-                status.textContent = message;
-                status.classList.add("show", type);
-            });
+        function clearAllErrors() {
+            Object.keys(fields).forEach(clearError);
         }
 
-        // 🔧 Скрываем статус при начале ввода (чтобы не мелькал)
-        function hideStatus() {
-            status.classList.remove("show", "success", "error");
-            status.textContent = "";
-        }
-
-        form.addEventListener("submit", async function(e) {
+        // 🔧 Отправка формы (как на рабочем сайте)
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // 🔧 Скрываем любой предыдущий статус перед валидацией
-            hideStatus();
+            // 🔧 Сначала очищаем все ошибки и статусы
+            clearAllErrors();
+            formStatus.classList.remove("show", "success", "error");
+            formStatus.textContent = "";
 
-            // Валидация всех полей
-            const isValid = Object.values(fields).every(field => validateField(field));
-            if (!isValid) {
-                showStatus("Пожалуйста, исправьте ошибки в форме", "error");
-                isSubmitting = false;
+            // 🔧 Валидация
+            if (!validateForm()) {
+                formStatus.textContent = "Пожалуйста, исправьте ошибки в форме";
+                formStatus.className = "form-status show error";
                 return;
             }
 
-            // UI состояние загрузки
-            btn.disabled = true;
-            btn.classList.add("loading");
+            // 🔧 Блокируем кнопку
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner"><i class="fas fa-spinner fa-spin"></i></span> <span>Отправка...</span>';
 
-            const params = {
-                name: fields.name.value.trim(),
-                email: fields.email.value.trim(),
-                message: fields.message.value.trim()
-            };
+            // 🔧 Отправка через EmailJS (sendForm автоматически берёт данные из формы)
+            emailjs.sendForm("service_91o1jtd", "template_0n6ntpn", this)
+                .then(function() {
+                    // ✅ Успех
+                    contactForm.style.display = 'none';
+                    formSuccess.classList.add('visible');
+                    formStatus.textContent = "✅ Сообщение отправлено!";
+                    formStatus.className = "form-status show success";
+                })
+                .catch(function(error) {
+                    // ❌ Ошибка
+                    console.error('EmailJS Error:', error);
+                    formStatus.textContent = "❌ Ошибка отправки. Напишите на galaxya50ilya@gmail.com";
+                    formStatus.className = "form-status show error";
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<span>Отправить Сообщение</span> <i class="fas fa-paper-plane"></i> <span class="spinner"><i class="fas fa-spinner"></i></span>';
+                });
+        });
 
-            try {
-                await emailjs.send("service_91o1jtd", "template_0n6ntpn", params);
-                showStatus("✅ Сообщение отправлено! Мы ответим в ближайшее время.", "success");
-                form.reset();
-                Object.values(fields).forEach(clearError);
-            } catch (err) {
-                console.error("EmailJS Error:", err);
-                showStatus("❌ Ошибка отправки. Попробуйте позже или напишите на galaxya50ilya@gmail.com", "error");
-            } finally {
-                btn.disabled = false;
-                btn.classList.remove("loading");
-                setTimeout(() => {
-                    isSubmitting = false;
-                }, 500);
-            }
+        // 🔧 Кнопка "Отправить ещё"
+        resetFormBtn.addEventListener('click', function() {
+            contactForm.reset();
+            clearAllErrors();
+            contactForm.style.display = 'block';
+            formSuccess.classList.remove('visible');
+            formStatus.classList.remove("show", "success", "error");
+            formStatus.textContent = "";
         });
 
         // Проверка загрузки EmailJS
