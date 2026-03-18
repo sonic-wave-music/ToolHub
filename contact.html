@@ -42,54 +42,6 @@
     
     <!-- Styles -->
     <link rel="stylesheet" href="assets/css/style.css">
-    
-    <!-- Inline Critical CSS for form feedback -->
-    <style>
-        .form-status {
-            margin-top: 1rem;
-            padding: 0.75rem;
-            border-radius: 8px;
-            font-weight: 500;
-            text-align: center;
-            display: none;
-        }
-        .form-status.show {
-            display: block;
-            animation: fadeIn 0.3s ease;
-        }
-        .form-status.success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        .form-status.error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .btn:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
-        .btn .spinner {
-            display: none;
-            margin-left: 0.5rem;
-            animation: spin 1s linear infinite;
-        }
-        .btn.loading .spinner {
-            display: inline-block;
-        }
-        .btn.loading span {
-            margin-right: 0.5rem;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -138,7 +90,7 @@
                                 <i class="fas fa-envelope" aria-hidden="true"></i>
                                 <div>
                                     <h4>Email</h4>
-                                    <p><a href="mailto:contact@toolhub.example">contact@toolhub.example</a></p>
+                                    <p><a href="mailto:galaxya50ilya@gmail.com">galaxya50ilya@gmail.com</a></p>
                                 </div>
                             </div>
                             
@@ -159,7 +111,7 @@
                                 <i class="fab fa-instagram" aria-hidden="true"></i>
                                 <span>Instagram</span>
                             </a>
-                            <a href="https://sonic-wave-music.github.io/Sonicwave/" target="_blank" rel="noopener noreferrer" class="social-btn">
+                            <a href="https://1nexaro.github.io/Sonicwave/" target="_blank" rel="noopener noreferrer" class="social-btn">
                                 <i class="fas fa-music" aria-hidden="true"></i>
                                 <span>SonicWave Studio</span>
                             </a>
@@ -269,7 +221,7 @@
                         <a href="https://www.instagram.com/ilya_kzo/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
                             <i class="fab fa-instagram" aria-hidden="true"></i>
                         </a>
-                        <a href="https://sonic-wave-music.github.io/Sonicwave/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="SonicWave Studio">
+                        <a href="https://1nexaro.github.io/Sonicwave/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="SonicWave Studio">
                             <i class="fas fa-music" aria-hidden="true"></i>
                         </a>
                         <a href="https://www.instagram.com/sonicwave.studio/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="SonicWave Instagram">
@@ -281,7 +233,7 @@
             
             <div class="footer-bottom">
                 <p>&copy; 2026 ToolHub. Все права защищены.</p>
-                <p>Создано <a href="https://sonic-wave-music.github.io/Sonicwave/" target="_blank" rel="noopener">SonicWave Studio</a></p>
+                <p>Создано <a href="https://1nexaro.github.io/Sonicwave/" target="_blank" rel="noopener">SonicWave Studio</a></p>
             </div>
         </div>
     </footer>
@@ -301,10 +253,17 @@
             message: document.getElementById("message")
         };
 
-        // Валидация в реальном времени
+        // 🔧 Флаг блокировки blur-валидации во время отправки
+        let isSubmitting = false;
+
+        // Валидация с учётом флага isSubmitting
         Object.values(fields).forEach(field => {
-            field.addEventListener("blur", () => validateField(field));
-            field.addEventListener("input", () => clearError(field));
+            field.addEventListener("blur", () => {
+                if (!isSubmitting) validateField(field);
+            });
+            field.addEventListener("input", () => {
+                if (!isSubmitting) clearError(field);
+            });
         });
 
         function validateField(field) {
@@ -330,32 +289,35 @@
 
         function showError(field, errorEl, message) {
             field.setAttribute("aria-invalid", "true");
-            field.style.borderColor = "#dc3545";
+            field.style.borderColor = "var(--danger)";
+            // 🔧 Добавляем класс error на form-group → скрывает form-hint
+            field.closest(".form-group")?.classList.add("error");
             if (errorEl) {
                 errorEl.textContent = message;
-                errorEl.style.display = "block";
+                errorEl.classList.add("show");
             }
         }
 
         function clearError(field) {
             field.setAttribute("aria-invalid", "false");
             field.style.borderColor = "";
+            // 🔧 Убираем класс error → показывает form-hint обратно
+            field.closest(".form-group")?.classList.remove("error");
             const errorEl = document.getElementById(`${field.id}-error`);
             if (errorEl) {
                 errorEl.textContent = "";
-                errorEl.style.display = "none";
+                errorEl.classList.remove("show");
             }
         }
 
         function showStatus(message, type) {
             status.textContent = message;
             status.className = `form-status show ${type}`;
-            status.style.display = "block";
             
             // Автоскрытие успеха через 5 сек
             if (type === "success") {
                 setTimeout(() => {
-                    status.style.display = "none";
+                    status.classList.remove("show");
                 }, 5000);
             }
         }
@@ -363,17 +325,20 @@
         form.addEventListener("submit", async function(e) {
             e.preventDefault();
 
+            // 🔧 Блокируем blur-валидацию на время отправки
+            isSubmitting = true;
+
             // Валидация всех полей
             const isValid = Object.values(fields).every(field => validateField(field));
             if (!isValid) {
                 showStatus("Пожалуйста, исправьте ошибки в форме", "error");
+                isSubmitting = false; // 🔧 Разблокируем
                 return;
             }
 
             // UI состояние загрузки
             btn.disabled = true;
             btn.classList.add("loading");
-            const originalBtnText = btn.innerHTML;
 
             const params = {
                 name: fields.name.value.trim(),
@@ -388,10 +353,12 @@
                 Object.values(fields).forEach(clearError);
             } catch (err) {
                 console.error("EmailJS Error:", err);
-                showStatus("❌ Ошибка отправки. Попробуйте позже или напишите на contact@toolhub.example", "error");
+                showStatus("❌ Ошибка отправки. Попробуйте позже или напишите на galaxya50ilya@gmail.com", "error");
             } finally {
                 btn.disabled = false;
                 btn.classList.remove("loading");
+                // 🔧 Разблокируем blur-валидацию
+                isSubmitting = false;
             }
         });
 
