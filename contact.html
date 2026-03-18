@@ -256,17 +256,18 @@
         // 🔧 Флаг блокировки blur-валидации
         let isSubmitting = false;
 
-        // 🔧 ВАЖНО: Устанавливаем флаг на mousedown (срабатывает ДО blur!)
-        btn.addEventListener("mousedown", function() {
+        // 🔧 Блокируем blur при клике на кнопку (срабатывает ДО blur полей)
+        btn.addEventListener("mousedown", function(e) {
+            e.preventDefault();
             isSubmitting = true;
         });
         
-        // Для мобильных устройств
-        btn.addEventListener("touchstart", function() {
+        btn.addEventListener("touchstart", function(e) {
+            e.preventDefault();
             isSubmitting = true;
         });
 
-        // Валидация с учётом флага isSubmitting
+        // Валидация полей
         Object.values(fields).forEach(field => {
             field.addEventListener("blur", () => {
                 if (!isSubmitting) validateField(field);
@@ -318,19 +319,30 @@
             }
         }
 
+        // 🔧 ПОЛНОСТЬЮ переписываем классы status (главное исправление!)
         function showStatus(message, type) {
-            status.textContent = message;
-            status.className = `form-status show ${type}`;
+            // Сначала скрываем и очищаем ВСЕ классы
+            status.classList.remove("show", "success", "error");
+            status.textContent = "";
             
-            if (type === "success") {
-                setTimeout(() => {
-                    status.classList.remove("show");
-                }, 5000);
-            }
+            // Небольшая задержка для чистого переключения
+            requestAnimationFrame(() => {
+                status.textContent = message;
+                status.classList.add("show", type);
+            });
+        }
+
+        // 🔧 Скрываем статус при начале ввода (чтобы не мелькал)
+        function hideStatus() {
+            status.classList.remove("show", "success", "error");
+            status.textContent = "";
         }
 
         form.addEventListener("submit", async function(e) {
             e.preventDefault();
+
+            // 🔧 Скрываем любой предыдущий статус перед валидацией
+            hideStatus();
 
             // Валидация всех полей
             const isValid = Object.values(fields).every(field => validateField(field));
@@ -361,7 +373,6 @@
             } finally {
                 btn.disabled = false;
                 btn.classList.remove("loading");
-                // 🔧 Разблокируем blur-валидацию с небольшой задержкой
                 setTimeout(() => {
                     isSubmitting = false;
                 }, 500);
