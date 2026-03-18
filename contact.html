@@ -209,5 +209,43 @@
 
     <!-- Scripts -->
     <script src="assets/js/main.js"></script>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+
+    const form = document.getElementById("contact-form");
+    const btn = document.getElementById("submit-btn");
+    const status = document.getElementById("form-status");
+
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        btn.disabled = true;
+        btn.innerText = "Отправка...";
+
+        const params = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            message: document.getElementById("message").value
+        };
+
+        emailjs.send("service_91o1jtd", "template_0n6ntpn", params)
+            .then(() => {
+                status.innerHTML = "✅ Отправлено!";
+                status.style.color = "green";
+                form.reset();
+            })
+            .catch((err) => {
+                status.innerHTML = "❌ Ошибка";
+                status.style.color = "red";
+                console.error(err);
+            })
+            .finally(() => {
+                btn.disabled = false;
+                btn.innerText = "Отправить";
+            });
+    });
+
+});
+</script>
 </body>
 </html>
