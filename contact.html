@@ -253,8 +253,18 @@
             message: document.getElementById("message")
         };
 
-        // 🔧 Флаг блокировки blur-валидации во время отправки
+        // 🔧 Флаг блокировки blur-валидации
         let isSubmitting = false;
+
+        // 🔧 ВАЖНО: Устанавливаем флаг на mousedown (срабатывает ДО blur!)
+        btn.addEventListener("mousedown", function() {
+            isSubmitting = true;
+        });
+        
+        // Для мобильных устройств
+        btn.addEventListener("touchstart", function() {
+            isSubmitting = true;
+        });
 
         // Валидация с учётом флага isSubmitting
         Object.values(fields).forEach(field => {
@@ -290,7 +300,6 @@
         function showError(field, errorEl, message) {
             field.setAttribute("aria-invalid", "true");
             field.style.borderColor = "var(--danger)";
-            // 🔧 Добавляем класс error на form-group → скрывает form-hint
             field.closest(".form-group")?.classList.add("error");
             if (errorEl) {
                 errorEl.textContent = message;
@@ -301,7 +310,6 @@
         function clearError(field) {
             field.setAttribute("aria-invalid", "false");
             field.style.borderColor = "";
-            // 🔧 Убираем класс error → показывает form-hint обратно
             field.closest(".form-group")?.classList.remove("error");
             const errorEl = document.getElementById(`${field.id}-error`);
             if (errorEl) {
@@ -314,7 +322,6 @@
             status.textContent = message;
             status.className = `form-status show ${type}`;
             
-            // Автоскрытие успеха через 5 сек
             if (type === "success") {
                 setTimeout(() => {
                     status.classList.remove("show");
@@ -325,14 +332,11 @@
         form.addEventListener("submit", async function(e) {
             e.preventDefault();
 
-            // 🔧 Блокируем blur-валидацию на время отправки
-            isSubmitting = true;
-
             // Валидация всех полей
             const isValid = Object.values(fields).every(field => validateField(field));
             if (!isValid) {
                 showStatus("Пожалуйста, исправьте ошибки в форме", "error");
-                isSubmitting = false; // 🔧 Разблокируем
+                isSubmitting = false;
                 return;
             }
 
@@ -357,8 +361,10 @@
             } finally {
                 btn.disabled = false;
                 btn.classList.remove("loading");
-                // 🔧 Разблокируем blur-валидацию
-                isSubmitting = false;
+                // 🔧 Разблокируем blur-валидацию с небольшой задержкой
+                setTimeout(() => {
+                    isSubmitting = false;
+                }, 500);
             }
         });
 
