@@ -674,6 +674,51 @@ a:hover {
     border-color: var(--primary);
 }
 
+/* === FORM VALIDATION STYLES (FIXES) === */
+.form-group.error .form-hint {
+    display: none;
+}
+
+.form-error {
+    display: none;
+    color: var(--danger);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    line-height: 1.4;
+}
+
+.form-error.show {
+    display: block;
+    animation: fadeIn 0.2s ease;
+}
+
+.form-hint {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+/* Spinner для кнопки отправки */
+.btn .spinner {
+    display: none;
+    margin-left: 0.5rem;
+    animation: spin 1s linear infinite;
+}
+
+.btn.loading .spinner {
+    display: inline-block;
+}
+
+.btn.loading span:not(.spinner) {
+    margin-right: 0.5rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Анимация статусов формы */
 .form-status {
     display: none;
     margin-top: var(--spacing-md);
@@ -681,6 +726,16 @@ a:hover {
     border-radius: var(--radius-md);
     align-items: center;
     gap: var(--spacing-xs);
+    animation: slideDown 0.3s ease;
+}
+
+.form-status.show {
+    display: flex;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .form-status.success {
@@ -694,6 +749,7 @@ a:hover {
     color: var(--danger);
     border: 1px solid var(--danger);
 }
+/* === END FORM VALIDATION STYLES === */
 
 /* Privacy Page */
 .privacy-section { padding: var(--spacing-xl) 0 var(--spacing-xxl); }
